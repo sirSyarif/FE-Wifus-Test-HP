@@ -1,6 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-}
-
-module.exports = nextConfig
+  images: {
+    domains: ["hp-api.herokuapp.com"],
+  },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
+};

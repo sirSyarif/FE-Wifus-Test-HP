@@ -77,14 +77,12 @@ export default function Home() {
                   <CInputGroupText>@</CInputGroupText>
                   <CFormInput
                     placeholder="user@mail.com"
-                    aria-describedby="exampleFormControlInputHelpInline"
-                    id="exampleFormControlInput1"
                     type="email"
                     name="email"
                     invalid={Boolean(
                       formik.touched.email && formik.errors.email
                     )}
-                    feedbackInvalid="anning"
+                    feedbackInvalid={formik.errors.email}
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
