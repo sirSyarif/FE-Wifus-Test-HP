@@ -38,7 +38,7 @@ export default function Popover({
   );
   return (
     <div>
-      <CPopover content={<Filter />} placement="left">
+      <CPopover content={Filter()} placement="left">
         <CButton color="secondary">
           <BsFillFilterCircleFill size={30} />
         </CButton>
