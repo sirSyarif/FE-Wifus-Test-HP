@@ -23,6 +23,7 @@ import { Toaster } from "components";
 export default function Home() {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowToast, setIsShowToast] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const router = useRouter();
 
@@ -50,10 +51,15 @@ export default function Home() {
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => {
-      UserService.login(values).then((res) => {
-        setIsShowToast(true);
-        localStorage.setItem("email_hp", res.data.data.email);
-      });
+      UserService.login(values)
+        .then((res) => {
+          setIsShowToast(true);
+          setIsLoggedIn(true);
+          localStorage.setItem("email_hp", res.data.data.email);
+        })
+        .catch(() => {
+          setIsLoggedIn(false);
+        });
     },
   });
 
@@ -61,7 +67,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <Toaster onOpen={isShowToast} />
+      <Toaster onOpen={isShowToast} isFailed={isLoggedIn} />
       <div className="row align-items-center" style={{ height: "100vh" }}>
         <CCard className="col-lg-5 col-sm-12 mx-auto">
           <CCardBody>

@@ -25,11 +25,7 @@ export default function index({ cardData }) {
         </CCol>
         <CCol lg={3}>
           <CPopover
-            content={
-              <CustomIfame
-                link={`http://localhost:3000/character-list/${cardData.name}`}
-              />
-            }
+            content={<CustomIfame link={`/character-list/${cardData.name}`} />}
             placement="bottom"
             trigger="hover"
           >
