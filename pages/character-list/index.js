@@ -103,7 +103,7 @@ export default function CharacterList({ characters }) {
             {stableSort(filteredCharacter, getComparator(order, "name"))
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((item) => (
-                <CCol lg={6} className="mb-2">
+                <CCol lg={6} className="mb-2" key={item.name}>
                   <ListCharacter cardData={item} />
                 </CCol>
               ))}

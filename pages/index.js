@@ -56,8 +56,10 @@ export default function Home() {
           setIsShowToast(true);
           setIsLoggedIn(true);
           localStorage.setItem("email_hp", res.data.data.email);
+          setTimeout(() => router.push("/character-list"), 200);
         })
         .catch(() => {
+          setIsShowToast(true);
           setIsLoggedIn(false);
         });
     },

@@ -6,7 +6,7 @@ export default function index({ onOpen, isFailed }) {
     <CToaster placement="top-end">
       <CToast autohide visible={onOpen}>
         <CToastHeader closeButton className="p-3">
-          {isFailed ? (
+          {!isFailed ? (
             <BsExclamationLg
               style={{ marginRight: "10px" }}
               color="red"
@@ -20,7 +20,7 @@ export default function index({ onOpen, isFailed }) {
             />
           )}
           <strong className="me-auto">
-            {isFailed ? "Akun tidak ditemukan !" : "Login berhasil !"}
+            {!isFailed ? "Akun tidak ditemukan !" : "Login berhasil !"}
           </strong>
         </CToastHeader>
       </CToast>
