@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const login = ({ email, password }) => {
-  const response = axios.post(`${process.env.BASE_API_URL}/api/login`, {
+  const response = axios.post("/api/login", {
     email,
     password,
   });
